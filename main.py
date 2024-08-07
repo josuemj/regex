@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import openpyxl
 
 # Leer el contenido del archivo
 file_path = 'BL-Flickr-Images-Book.csv'
@@ -25,5 +26,7 @@ for match in line_pattern.finditer(csv_content):
 
 # Crear un DataFrame a partir de las filas
 df = pd.DataFrame(rows[1:], columns=rows[0])
+namefile = "output.xlsx"
+df.to_excel(namefile, index=False)
 
-print(df.head())
+print(df)
